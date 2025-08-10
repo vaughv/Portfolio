@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Starter Page - Vaibhav</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    .container {
+            padding: 2rem 1rem; /* Adjust padding as needed */
+            max-width: 1200px; /* Max width for content centering */
+            margin: 0 auto; /* Center the container */
+    }
+
+    .portfolio-filters {
+            padding: 0;
+            margin: 0 auto 20px auto;
+            list-style: none;
+            text-align: center;
+            border-radius: 50px;
+            padding: 2px 15px;
+            display: flex; /* Use flexbox for horizontal alignment */
+            flex-wrap: wrap; /* Allow filters to wrap on smaller screens */
+            justify-content: center; /* Center filters */
+            gap: 10px; /* Space between filter items */
+        }
+
+        .portfolio-filters li {
+            cursor: pointer;
+            display: block;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1;
+            color: #444; /* Default text color */
+            background-color: #f7f7f7; /* Light background for inactive filters */
+            margin: 0 5px 10px 5px; /* Margin for spacing */
+            transition: all 0.3s ease-in-out;
+            border-radius: 5px; /* Slightly rounded corners for filters */
+        }
+
+        .portfolio-filters li:hover,
+        .portfolio-filters li.filter-active {
+            color: #fff; /* White text for active/hover */
+            background-color: #20c997; /* Teal/Light Green from palette */
+            box-shadow: 0 4px 8px rgba(32, 201, 151, 0.2); /* Subtle shadow using the new color */
+        }
+
+        /* Responsive adjustments for filters */
+        @media (max-width: 768px) {
+            .portfolio-filters li {
+                padding: 6px 15px;
+                font-size: 13px;
+            }
+        }
+
+        .certificate-item {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+            margin-bottom: 24px; /* Space between items in masonry layout */
+            /* Tailwind classes handle shadow, rounded corners, transitions, overflow */
+        }
+
+        .certificate-item img {
+            max-width: 100%; /* Ensure image doesn't overflow */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove extra space below image */
+        }
+
+        .certificate-info {
+            position: relative;
+            z-index: 1;
+            text-align: left;
+            padding: 1rem; /* Added padding here for spacing */
+            /* Tailwind classes handle padding, background, text color */
+        }
+
+        .certificate-info h4 {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+            color: #333; /* Darker text for titles */
+            margin-bottom: 0.25rem; /* mb-1 */
+            line-height: 1.3;
+        }
+
+        /* Removed .certificate-info p and .certificate-links as they are no longer in HTML */
+
+        /* Isotope container adjustments */
+        .isotope-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -12px; /* Compensate for column padding to align grid */
+            margin-right: -12px; /* Compensate for column padding to align grid */
+        }
+
+        .isotope-item {
+            padding-left: 12px; /* Gutter left */
+            padding-right: 12px; /* Gutter right */
+            box-sizing: border-box; /* Include padding in item width */
+        }
+
+        /* Ensure columns stack correctly on small screens */
+        @media (max-width: 767px) {
+            .col-md-6, .col-lg-4 { /* Apply to both md and lg for full width on mobile */
+                width: 100%; /* Full width on mobile */
+            }
+        }
+  </style>
+  
+</head>
+
+<body class="Certifications-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Vaibhav</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="certification.html" class="active" >Certifications</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Starter Section Section -->
+    <section id="starter-section" class="starter-section section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Certifications</h2>
+        <p>Check out my achievements!!</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-fewd">FrontEnd</li>
+            <li data-filter=".filter-dewd">BackEnd</li>
+            <li data-filter=".filter-web">Web</li>
+            <li data-filter=".filter-ai">AI</li>
+            <li data-filter=".filter-db">Database</li>
+            <li data-filter=".filter-others">Others</li>
+            <li data-filter=".filter-digital">Digital Credential</li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            <!--certificates go here... -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-fewd">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/FRONTEND/intro to html & csss.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+<!--all the certificates are here-->
+            <div class="col-lg-4 col-md-6 isotope-item filter-fewd">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/FRONTEND/Html5.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">BY Infosys</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-fewd">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/FRONTEND/css3.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By Infosys</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-fewd">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/FRONTEND/css intro.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-fewd">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/FRONTEND/css exercise.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-fewd">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/FRONTEND/javascript.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-fewd">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/FRONTEND/intro to js & react 1.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-fewd">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/FRONTEND/intro to js & react 2.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-ai">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/AI/From Learner to Builder Become an AI Agent Architect.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-ai">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/AI/getting started in ai.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-ai">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/AI/intro to ai.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-ai">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/AI/llm basics.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-ai">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/AI/Multiagent systems.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-ai">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/AI/power of ai agents.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-ai">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/AI/prompt engineering.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-dewd">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/BACKEND/java dsa.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By Infosys</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-dewd">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/BACKEND/java.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By Infosys</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-db">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/SQL/dbms1.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By Infosys</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-db">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/SQL/dbms2.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By Infosys</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-others">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/OTHERS/Agile development.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By Infosys</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-others">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/OTHERS/cyber security.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By Tech Mahindra</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-others">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/OTHERS/Email Writing.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By Infosys</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-others">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/OTHERS/high impact presentation.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By Infosys</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-others">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/OTHERS/Time management.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By Infosys</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-web">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/web/developing sites for web.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-web">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/web/interactive task list page.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-web">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/web/web development basics.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-web">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/web/web development.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-web">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/web/web indeed career guide.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-web">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/web/web testing and deployment.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+
+            <!-- Digital Credential-->
+             <div class="col-lg-4 col-md-6 isotope-item filter-digital">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/Digital Credentials/web development.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-digital">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/Digital Credentials/SkillsBuild_ProjectManagementFundamentals_Badge.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-digital">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/Digital Credentials/Getting_Started_With_Artificial_Intelligence_Badge.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-digital">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/Digital Credentials/Digital Sticker_Unleashing the Power of AI Agents.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            <div class="col-lg-4 col-md-6 isotope-item filter-digital">
+                    <div class="certificate-item rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <img src="assets/img/certificates/Digital Credentials/Digital Sticker_The Rise of Multiagent Systems.png" class="img-fluid w-full h-auto object-cover" alt="Frontend Certificate">
+                        <div class="certificate-info">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-1">By IBM</h4>
+                            <!-- Removed "Issued by" and credential links -->
+                        </div>
+                    </div>
+                </div><!-- End Certificate Item -->
+            
+              
+<!-- End of all the certificates Item -->
+        </div>
+      </div>
+
+    </section><!-- /Starter Section Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Vaibhav</strong> <span>All Rights Reserved<br></span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href=""><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
